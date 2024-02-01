@@ -14,7 +14,7 @@ function getMultiplier() {
   return new Promise(resolve => {
     chrome.runtime.sendMessage('getMultiplier', response => {
       localStorage.setItem('multiplier', JSON.stringify({
-        expires: Date.now() + 21600000,
+        expires: Date.now() + 1000 * 60 * 60 * 3,
         data: response,
       }));
 
