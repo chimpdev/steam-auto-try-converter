@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Steam Auto TRY Converter",
+  "version": "1.0",
+  "description": "Automatically converts dollar prices to TRY on Steam Store. No more manual conversion!",
+  "permissions": ["activeTab"],
+  "icons": {
+    "512": "images/logo.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://store.steampowered.com/*"],
+      "js": ["main.js"]
+    }
+  ]
+}
