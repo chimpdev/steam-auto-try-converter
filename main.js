@@ -1,11 +1,27 @@
+let locale;
+let multiplier;
+
 function getLocale() {
   return new Promise(resolve => {
     chrome.i18n.getAcceptLanguages(list => resolve(list[0] || 'tr-TR'));
   });
 }
 
-const multiplier = 30;
-const locale = getLocale();
+function getMultiplier() {
+  const cachedData = JSON.parse(localStorage.getItem('multiplier'));
+  if (cachedData && cachedData.expires > Date.now()) return Promise.resolve(cachedData.data);
+
+  return new Promise(resolve => {
+    chrome.runtime.sendMessage('getMultiplier', response => {
+      localStorage.setItem('multiplier', JSON.stringify({
+        expires: Date.now() + 21600000,
+        data: response,
+      }));
+
+      resolve(response);
+    });
+  });
+}
 
 function convertPrice(price) {
   return Number((price * multiplier).toFixed(2)).toLocaleString(locale, { style: 'currency', currency: 'TRY' });
@@ -57,9 +73,24 @@ function handleConvert() {
   });
 }
 
+console.log(
+  '%cSteam Auto TRY Converter %cLoading..',
+  'background: #171d25; padding: 5px 20px 5px 20px; border-radius: 10px; color: white; font-size: 16px; font-weight: bold;',
+  'margin-left: 10px; font-size: 16px; font-weight: bold;',
+);
+
 document.body.onload = async () => {
+  multiplier = await getMultiplier();
+  locale = await getLocale();
   handleConvert();
 
   const observer = new MutationObserver(handleConvert);
   observer.observe(document.body, { childList: true, subtree: true });
+
+  console.log(
+    `%cSteam Auto TRY Converter %cCurrent Multiplier: ${multiplier} %cCurrent Locale: ${locale}`,
+    'background: #171d25; padding: 5px 20px 5px 20px; border-radius: 10px; color: white; font-size: 16px; font-weight: bold;',
+    'margin-left: 10px; font-size: 16px; font-weight: bold;',
+    'margin-left: 10px;font-size: 16px; font-weight: bold;',
+  );
 };

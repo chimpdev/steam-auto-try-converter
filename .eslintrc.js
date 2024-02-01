@@ -27,5 +27,6 @@ module.exports = {
     semi: ['error', 'always'],
     'linebreak-style': 'off',
     'arrow-parens': 'off',
+    'no-console': 'off',
   },
 };

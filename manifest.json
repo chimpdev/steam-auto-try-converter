@@ -12,5 +12,9 @@
       "matches": ["https://store.steampowered.com/*"],
       "js": ["main.js"]
     }
-  ]
+  ],
+  "host_permissions": ["http://localhost:3000/*"],
+  "background": {
+    "service_worker": "background.js"
+  }
 }
