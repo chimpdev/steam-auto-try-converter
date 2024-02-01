@@ -1,3 +1,5 @@
+![Header](https://socialify.git.ci/chimpdev/steam-auto-try-converter/image?pattern=Circuit%20Board&name=1&owner=1&language=1&stargazers=1&issues=1&description=1&theme=Light&font=Jost)
+
 # Steam Auto TRY Converter Chrome Extension
 
 This Chrome extension automatically converts prices on Steam to Turkish Lira (TRY) based on a real-time TRY/USD exchange rate. It is intended for users who prefer to view prices in TRY instead of USD.
