@@ -13,7 +13,7 @@
       "js": ["main.js"]
     }
   ],
-  "host_permissions": ["http://localhost:3000/*"],
+  "host_permissions": ["https://steam-auto-try-converter.up.railway.app/*"],
   "background": {
     "service_worker": "background.js"
   }
