@@ -71,6 +71,15 @@ function handleConvert() {
     // eslint-disable-next-line no-param-reassign
     block.textContent = convertPrice(price);
   });
+
+  const ImpressionTrackedElements = document.querySelectorAll('.ImpressionTrackedElement > div > div > span > div > div:last-child > div');
+  ImpressionTrackedElements.forEach(block => {
+    const price = block.textContent.match(/\$(\d+\.\d+)/)?.[1];
+    if (!price) return;
+
+    // eslint-disable-next-line no-param-reassign
+    block.textContent = convertPrice(price);
+  });
 }
 
 console.log(
