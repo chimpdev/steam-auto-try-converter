@@ -13,7 +13,7 @@
       "js": ["main.js"]
     }
   ],
-  "host_permissions": ["https://steam-auto-try-converter.up.railway.app/*"],
+  "host_permissions": ["https://ff925917-f4dd-4cbd-b188-c7dea6aba642.bencan.net/*"],
   "background": {
     "service_worker": "background.js"
   }

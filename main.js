@@ -8,14 +8,14 @@ function getLocale() {
 }
 
 function getMultiplier() {
-  const cachedData = JSON.parse(localStorage.getItem('multiplier'));
+  const cachedData = JSON.parse(localStorage.getItem('steam_auto_try_converter_multiplier'));
   if (cachedData && cachedData.expires > Date.now()) return Promise.resolve(cachedData.data);
 
   return new Promise(resolve => {
     chrome.runtime.sendMessage('getMultiplier', response => {
-      localStorage.setItem('multiplier', JSON.stringify({
+      localStorage.setItem('steam_auto_try_converter_multiplier', JSON.stringify({
         expires: Date.now() + 1000 * 60 * 60 * 3,
-        data: response,
+        data: response
       }));
 
       resolve(response);
