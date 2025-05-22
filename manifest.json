@@ -13,7 +13,7 @@
       "js": ["main.js"]
     }
   ],
-  "host_permissions": ["https://ff925917-f4dd-4cbd-b188-c7dea6aba642.bencan.net/*"],
+  "host_permissions": ["https://steam-auto-try-converter-extension-server-8148c7d0.skyhan.cloud/*"],
   "background": {
     "service_worker": "background.js"
   }
